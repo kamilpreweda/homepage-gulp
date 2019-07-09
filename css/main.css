@@ -311,12 +311,119 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit; }
 
 body {
-  color: #F9C802;
-  background: #2D2241; }
+  background: #020024;
+  background: -webkit-gradient(linear, left top, right top, from(#020024), color-stop(6%, #090979), to(#00d4ff));
+  background: -webkit-linear-gradient(left, #020024 0%, #090979 6%, #00d4ff 100%);
+  background: -o-linear-gradient(left, #020024 0%, #090979 6%, #00d4ff 100%);
+  background: linear-gradient(90deg, #020024 0%, #090979 6%, #00d4ff 100%);
+  max-width: 80%;
+  margin: 0 auto;
+  font-family: arial;
+  color: white; }
+
+.diary__link {
+  color: white; }
+
+.navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 16px auto 0;
+  max-width: 50vw;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .navigation__link {
+    text-decoration: none;
+    margin: 0 16px;
+    color: white; }
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'header header header' "about . diary" "footer footer footer";
+  -ms-grid-columns: 1fr 16px 100px 16px 1fr;
+  grid-template-columns: 1fr 100px 1fr;
+  -ms-grid-rows: 100px 16px 1fr 16px 1fr;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px; }
+
+.header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: header;
+  text-align: center; }
+
+.about {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: about; }
+
+.diary {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  grid-area: diary; }
+
+.footer {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: footer;
+  text-align: center; }
+
+@media (max-width: 640px) {
+  .grid {
+        grid-template-areas: 'header' "about" "diary" "footer";
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr; }
+  .navigation {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .navigation__visible {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+    .navigation__link {
+      margin: 16px; }
+    .navigation__switcher {
+      border: none;
+      background: white;
+      position: absolute;
+      top: 16px;
+      right: 16px; }
+  .header {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1; }
+  .about {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1; }
+  .diary {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1; }
+  .footer {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1; } }
+
+@media (min-width: 641px) {
+  .navigation__switcher {
+    display: none; } }
 
 /*# sourceMappingURL=main.css.map */
