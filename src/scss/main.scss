@@ -6,11 +6,102 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
 body {
-  color: $yellow;
-  background: $violet;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 6%, rgba(0, 212, 255, 1) 100%);
+  max-width: 80%;
+  margin: 0 auto;
+  font-family: arial;
+  color: white;
+}
+
+.diary__link {
+  color: white;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin: 16px auto 0;
+  max-width: 50vw;
+  width: 100%;
+  align-items: center;
+
+  &__link {
+    text-decoration: none;
+    margin: 0 16px;
+    color: white;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-areas: 'header header header'
+    "about . diary"
+    "footer footer footer";
+  grid-template-columns: 1fr 100px 1fr;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+.header {
+  grid-area: header;
+  text-align: center;
+}
+
+.about {
+  grid-area: about;
+}
+
+.diary {
+  grid-area: diary;
+}
+
+.footer {
+  grid-area: footer;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-areas: 'header'
+      "about"
+      "diary"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .navigation {
+    display: none;
+    flex-direction: column;
+
+    &__visible {
+      display: flex;
+    }
+
+    &__link {
+      margin: 16px;
+    }
+
+    &__switcher {
+      border: none;
+      background: white;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+  }
+}
+
+@media (min-width: 641px) {
+  .navigation__switcher {
+    display: none;
+  }
 }
